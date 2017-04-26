@@ -52,6 +52,10 @@ $(document).ready(function () {
 
     alight.controllers.main_app = function (scope) {
         scope.name = "Super shop";
+
+        scope.username = "Nobody";
+        scope.$watch('username', function (value) {console.log("username changed to: " + value)});
+
         scope.db = shop_init();
         console.log(scope.db);
     }
