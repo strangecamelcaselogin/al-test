@@ -9,22 +9,27 @@
 	<script src="static/jquery-2.2.4.js"> </script>
 	<script type="text/javascript" src='static/alight.js'></script>
 	<script type="text/javascript" src='static/al-test.js'></script>
+    <link rel="stylesheet" href="static/style.css/">
 </head>
 
-<body id="main_app">
+<body al-app="main_app">
     <div>
-        <div>
-		    Welcome to {{name}}!
+        <div class="caption">
+            Welcome, {{username}}, to {{name}}! <br>
+            Enter username: <input type="text" al-value="username">
         </div>
 
-        <div>
-            Item[0].price is {{db["items"][0].price}}
-        </div>
+        <div class="itemsList">
+            <div class="itemsCaption">
+                Items list:
+            </div>
 
-        <!--<divshop_initinit="title='Hello!'">
-            <input al-value="title" type="text" class="form-control" />
-            <p>{{title}}</p>
-	    </div> -->
+            <div al-repeat="item in db.items" class="oneItem">
+                <div al-repeat="(k, v) in item">
+                    {{k}} = {{v}}
+                </div>
+            </div>
+        </div>
 
 	</div>
 </body>
