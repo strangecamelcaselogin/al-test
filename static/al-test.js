@@ -51,13 +51,20 @@ $(document).ready(function () {
     */
 
     alight.controllers.main_app = function (scope) {
-        scope.name = "Super shop";
+        scope.shop = "Super shop";
 
-        scope.username = "Nobody";
-        scope.$watch('username', function (value) {console.log("username changed to: " + value)});
+        scope.user = "Nobody";
+        scope.$watch('user', function (value) {console.log("user changed to: " + value)});
 
         scope.db = shop_init();
         console.log(scope.db);
+
+        scope.activeItem = null;
+
+        scope.set_active = function(item) {
+            console.log("set active:" + item.id);
+            scope.activeItem = item;
+        };
     }
 
 

@@ -16,8 +16,8 @@
 <body al-app="main_app">
     <div>
         <div class="caption">
-            Welcome, {{username}}, to {{name}}! <br>
-            Enter username: <input type="text" al-value="username">
+            Welcome, {{user}}, to {{=shop}}! <br>
+            Enter username: <input type="text" al-value="user">
         </div>
 
         <!-- Пространство под список товаров и карточку выбранного товара-->
@@ -26,18 +26,19 @@
             <div class="itemsList">
                 <p>Items list:</p>
 
-                <a al-repeat="item in db.items" href="#item_{{$index+1}}"> {{item.name}} </a>
-                <!--<div al-repeat="(k, v) in item"> {{k}} = {{v}} </div> -->
+                <a al-repeat="item in db.items" al-click="set_active(item)" href="#{{item.id}}">{{item.name}}</a>
             </div>
 
             <!-- Карточка выбранного-->
             <div class="itemCard">
-                <p>
-                    Имя активного товара.
-                </p>
+                <p>Карточка товара.</p>
 
                 <div class="itemCardBody">
-                    Карточка активного.
+                    <div al-if="activeItem===null">Ничего не выбрано</div>
+
+                    <div al-repeat="(key, value) in activeItem">
+                        {{key}} = {{value}}
+                    </div>
                 </div>
 
             </div>
