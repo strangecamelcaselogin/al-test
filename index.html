@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="static/style.css/">
 </head>
 
+
 <body al-app="main_app">
     <div>
         <div class="caption">
@@ -19,18 +20,29 @@
             Enter username: <input type="text" al-value="username">
         </div>
 
-        <div class="itemsList">
-            <div class="itemsCaption">
-                Items list:
+        <!-- Пространство под список товаров и карточку выбранного товара-->
+        <div class="main">
+            <!-- Список товаров-->
+            <div class="itemsList">
+                <p>Items list:</p>
+
+                <a al-repeat="item in db.items" href="#item_{{$index+1}}"> {{item.name}} </a>
+                <!--<div al-repeat="(k, v) in item"> {{k}} = {{v}} </div> -->
             </div>
 
-            <div al-repeat="item in db.items" class="oneItem">
-                <div al-repeat="(k, v) in item">
-                    {{k}} = {{v}}
+            <!-- Карточка выбранного-->
+            <div class="itemCard">
+                <p>
+                    Имя активного товара.
+                </p>
+
+                <div class="itemCardBody">
+                    Карточка активного.
                 </div>
-            </div>
-        </div>
 
+            </div>
+
+        </div>
 	</div>
 </body>
 </html>
