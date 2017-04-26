@@ -36,9 +36,12 @@
                 <div class="itemCardBody">
                     <div al-if="activeItem===null">Ничего не выбрано</div>
 
-                    <div al-repeat="(key, value) in activeItem">
-                        {{key}} = {{value}}
+                    <div al-repeat="(key, value) in activeItemCopy">
+                        {{activeItemCopy}}
+                        {{key}} = <input type="text" al-value="value">
                     </div>
+
+                    <button al-click="save()">Клик</button>
                 </div>
 
             </div>

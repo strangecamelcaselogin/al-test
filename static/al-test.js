@@ -60,11 +60,18 @@ $(document).ready(function () {
         console.log(scope.db);
 
         scope.activeItem = null;
+        scope.activeItemCopy = null;
 
         scope.set_active = function(item) {
             console.log("set active:" + item.id);
             scope.activeItem = item;
+            scope.activeItemCopy = Object.assign({}, item);  // слабое место
         };
+
+        scope.save = function () {
+            console.log(scope.activeItemCopy);
+            console.log(scope.activeItem);
+        }
     }
 
 
