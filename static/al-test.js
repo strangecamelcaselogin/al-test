@@ -33,18 +33,28 @@ function shop_init() {
         manufactures.push(manufacture);
     }
 
-    return {"items": items, "manufactures": manufactures}
+    var db = Object.create(null);
+    db.items = items;
+    db.manufactures = manufactures;
+    return db;
 }
 
 $(document).ready(function () {
     console.log("run.");
 
+    /*
+    <body id="main_app">
     var main_scope = alight.Scope();
     main_scope.name = 'Super shop';
-    main_scope.db = shop_init();
-    console.log(main_scope.db);
-
     // привязать к элементу
     alight.applyBindings(main_scope, $('#main_app')[0]);
+    */
+
+    alight.controllers.main_app = function (scope) {
+        scope.name = "Super shop";
+        scope.db = shop_init();
+        console.log(scope.db);
+    }
+
 
 });
