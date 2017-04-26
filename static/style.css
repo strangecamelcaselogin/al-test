@@ -1,0 +1,18 @@
+.caption{
+    margin: 25px;
+}
+
+.itemsList{
+    margin: 25px;
+    border: 1px solid black;
+}
+
+.itemsCaption{
+    margin: 25px;
+}
+
+.oneItem{
+    margin: 15px;
+    padding: 15px;
+    border: 1px solid black;
+}
